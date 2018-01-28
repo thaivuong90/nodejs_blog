@@ -1,0 +1,65 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Create User</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		window.onload = function() {
+		};
+	</script>
+	
+</head>
+<body>
+
+<div class="w3-container">
+	<form method="POST" action="user" enctype="multipart/form-data">
+		<h1 class="w3-text-blue">Register Form</h1>
+		<div class="row">
+			<label class="w3-text-blue">Name:</label>
+			<input type="text" name="name" class="w3-input w3-border" placeholder="Input your name" value="<%= data.name %>" />
+		</div>
+		<div class="row">
+			<label class="w3-text-blue">Username:</label>
+			<input type="text" name="username" class="w3-input w3-border" placeholder="Input your username" value="<%= data.username %>" />
+		</div>
+		<div class="row">
+			<label class="w3-text-blue"Password and confirm password not match>Password:</label>
+			<input type="password" name="password" class="w3-input w3-border" placeholder="Input your password" value="<%= data.password %>"  />
+		</div>
+		<div class="row">
+			<label class="w3-text-blue">Confirm password:</label>
+			<input type="password" name="conf_password" class="w3-input w3-border" placeholder="Input your password again" value="<%= data.conf_password %>"  />
+		</div>
+		<div class="row">
+			<label class="w3-text-blue">Avatar:</label>
+			<input type="file" name="upload" class="w3-input w3-border" />
+		</div>
+		<div class="button">
+			<input type="submit" name="submit" class="w3-btn w3-blue" value="Register" />
+			<input type="submit" name="submit" class="w3-btn w3-blue" value="Login" />
+		</div>
+	</form>
+	<% if(data.error.length > 0) { %>
+	<ul id="error">
+		<% for(var i=0; i < data.error.length; i++) { %>
+			   <li><%= data.error[i].content %></li>
+		<% } %>
+	</ul>
+	<% } %>
+	<% if(data.success.length > 0) { %>
+	<ul id="success">
+		<% for(var i=0; i < data.success.length; i++) { %>
+			   <li><%= data.success[i].content %></li>
+		<% } %>
+	</ul>
+	<% } %>
+</div>
+
+</body>
+</html>

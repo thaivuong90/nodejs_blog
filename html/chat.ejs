@@ -1,0 +1,103 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Create User</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	
+</head>
+<body>
+
+<div class="w3-container">
+	<div class="w3-row">
+	  <div class="w3-container w3-third">
+	  	<h2>Your Account</h2>
+	    <ul class="w3-ul w3-card-4">
+	    	<li class="w3-white w3-bar">
+		      <img src="images/img_avatar2.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+		      <div class="w3-bar-item">
+		        <span class="w3-large"><%= data.name %></span><br>
+		        <span class="w3-text-green">Online</span> | <a href="/user/info">Info</a> | <a href="/user/logout">Logout</a>
+		      </div>
+		    </li>
+	    </ul>
+	    <h2>List Friend</h2>
+	    <% if(data.list_friend.length > 0) { %>
+		    <% for(var i=0; i < data.list_friend.length; i++) { %>
+		    <ul class="w3-ul w3-card-4">
+		    	<li class="w3-bar">
+			      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-xlarge w3-right">x</span>
+			      <img src="<%= data.list_friend[i].avatar %>" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+			      <div class="w3-bar-item">
+			        <span class="w3-large"><%= data.list_friend[i].name %></span><br>
+			        <span class="w3-text-green">Online</span>
+			      </div>
+			    </li>
+			    
+		    </ul>
+		    <% } %>
+	    <% } %>
+	  </div>
+	  <div class="w3-container w3-twothird">
+	  	<h2>Talk to</h2>
+	  	<div class="w3-border" style="height: 370px; overflow-x:hidden; overflow-y:auto;">
+		    <ul class="w3-ul w3-card-4">
+		    	<li>
+		    		<label>Me:</label>
+		    		<p class="text">
+		    			Hellooooooooooooo	
+		    		</p>
+		    	</li>
+		    	<li class="w3-light-grey w3-right-align">
+		    		<label>Mike:</label>
+		    		<p class="text">
+		    			Hellooooooooooooo
+		    		</p>
+		    	</li>
+		    	<li>
+		    		<label>Me:</label>
+		    		<p class="text">
+		    			Hellooooooooooooo
+		    		</p>
+		    	</li>
+		    	<li class="w3-light-grey w3-right-align">
+		    		<label>Mike:</label>
+		    		<p class="text">
+		    			Hellooooooooooooo
+		    		</p>
+		    	</li>
+		    	<li>
+		    		<label>Me:</label>
+		    		<p class="text">
+		    			Hellooooooooooooo
+		    		</p>
+		    	</li>
+		    	<li class="w3-light-grey w3-right-align">
+		    		<label>Mike:</label>
+		    		<p class="text">
+		    			Hellooooooooooooo
+		    		</p>
+		    	</li>
+		    	<li class="w3-light-grey w3-right-align">
+		    		<label>Mike:</label>
+		    		<p class="text">
+		    			Hellooooooooooooo
+		    		</p>
+		    	</li>
+		    </ul>
+	    </div>
+	    <div class="w3-margin-top">
+	    	<input class="w3-input w3-border w3-margin-bottom" type="text">
+			<input type="submit" name="submit" class="w3-btn w3-blue" value="Send" />
+		</div>
+	  </div>
+	  
+	</div>
+</div>
+
+</body>
+</html>

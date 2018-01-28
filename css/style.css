@@ -1,0 +1,25 @@
+@CHARSET "ISO-8859-1";
+*{
+	padding: 0px;
+	margin: 0px;	
+}
+
+.row {
+	overflow:hidden;
+	margin-bottom: 10px;
+}
+
+#error {
+	margin: 20px;
+}
+#error li{
+	color: #F00;
+}
+
+#success {
+	margin: 20px;
+}
+#success li{
+	color: #0080ff;
+}
+

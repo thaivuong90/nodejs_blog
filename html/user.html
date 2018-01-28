@@ -1,0 +1,51 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Create User</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script>
+		window.onload = function(){ 
+		   alert("{{ message }}");
+		}
+
+	</script>
+	
+</head>
+<body>
+
+<div class="w3-container">
+	<form method="POST" action="user">
+		<h1 class="w3-text-blue">Register Form</h1>
+		<div class="row">
+			<label class="w3-text-blue">Name:</label>
+			<input type="text" name="name" class="w3-input w3-border" placeholder="Input your name" />
+		</div>
+		<div class="row">
+			<label class="w3-text-blue">Username:</label>
+			<input type="text" name="username" class="w3-input w3-border" placeholder="Input your username" />
+		</div>
+		<div class="row">
+			<label class="w3-text-blue"Password and confirm password not match>Password:</label>
+			<input type="password" name="password" class="w3-input w3-border" placeholder="Input your password" />
+		</div>
+		<div class="row">
+			<label class="w3-text-blue">Confirm password:</label>
+			<input type="password" name="conf_password" class="w3-input w3-border" placeholder="Input your password again" />
+		</div>
+		<div class="button">
+			<input type="submit" name="submit" class="w3-btn w3-blue" value="Register" />
+			<input type="submit" name="submit" class="w3-btn w3-blue" value="Login" />
+		</div>
+	</form>
+	<ul class="error">
+		
+	</ul>
+</div>
+
+</body>
+</html>

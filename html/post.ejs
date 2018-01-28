@@ -1,0 +1,77 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Create User</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	
+</head>
+<body>
+
+<div class="w3-container">
+	<div class="w3-row">
+	  <div class="w3-container w3-third">
+	  	<h2>Your Account</h2>
+	    <ul class="w3-ul w3-card-4">
+	    	<li class="w3-white w3-bar">
+		      <img src="<%= data.user_info.avatar %>" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+		      <div class="w3-bar-item">
+		        <span class="w3-large"><%= data.user_info.name %></span><br>
+		        <span class="w3-text-green">Online</span> | <a href="/user/info">Info</a> | <a href="/post/add">Add post</a> | <a href="/user/logout">Logout</a>
+		      </div>
+		    </li>
+	    </ul> 
+	    <h2>List Friend</h2>
+	    <% if(data.list_friends.length > 0) { %>
+		    <% for(var i=0; i < data.list_friends.length; i++) { %>
+		    <ul class="w3-ul w3-card-4">
+		    	<li class="w3-bar">
+			      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-xlarge w3-right">x</span>
+			      <img src="<%= data.list_friends[i].friend_avatar %>" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+			      <div class="w3-bar-item">
+			        <span class="w3-large"><%= data.list_friends[i].friend_name %></span><br>
+			        <span class="w3-text-green">Online</span> | <a href="#">Send message</a>
+			      </div>
+			    </li>
+			    
+		    </ul>
+		    <% } %>
+	    <% } %>
+	  </div>
+	  <div class="w3-container w3-twothird">
+	  	<h2>Add Posts</h2>
+	  	<form class="w3-container w3-card-4 w3-padding-16" method="POST" action="/page/add_post">
+	  		<p class="w3-margin-bottom">
+				<label class="w3-text-blue"><b>Title</b></label>
+				<input class="w3-input w3-border" type="text">
+			</p>
+			<p class="w3-margin-bottom">
+				<label class="w3-text-blue"><b>Desc</b></label>
+				<textarea rows="6" class="w3-input w3-border"></textarea>
+			</p>
+			<p class="w3-margin-bottom">
+				<label class="w3-text-blue"><b>Content</b></label>
+				<textarea rows="6" class="w3-input w3-border"></textarea>
+			</p>
+			<p class="w3-margin-bottom">
+				<input type="radio" name="status" value="1" checked>
+				<label class="w3-text-blue"><b>Show</b></label>
+				<input type="radio" name="status" value="0">
+				<label class="w3-text-blue"><b>Hide</b></label>
+			</p>
+			<p>
+				<input type="submit" name="submit" class="w3-btn w3-blue" value="Submit" />
+				<input type="submit" name="submit" class="w3-btn w3-blue" value="Clear" />
+			</p>
+		</form>
+	  </div>
+	  
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Create User</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div class="w3-container">
+	<h1 class="w3-text-blue">Login Form</h1>
+	<form method="POST" action="login">
+		<div class="row">
+			<label class="w3-text-blue">Username:</label>
+			<input type="text" name="username" class="w3-input w3-border" placeholder="Input your username" />
+		</div>
+		<div class="row">
+			<label class="w3-text-blue">Password:</label>
+			<input type="password" name="password" class="w3-input w3-border" placeholder="Input your password" />
+		</div>
+		<div class="button">
+			<input type="submit" name="submit" class="w3-btn w3-blue" value="Login" />
+			<input type="submit" name="submit" class="w3-btn w3-blue" value="Register" />
+		</div>
+	</form>
+	<ul id="error">
+		<% if(data.error.length > 0) { %>
+			   <li><%= data.error %></li>
+		<% } %>
+	</ul>
+</div>
+
+</body>
+</html>
