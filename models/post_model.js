@@ -1,10 +1,10 @@
 var table = "posts";
 
-exports.insert = function(con, data) {
+exports.insert = function(con, input) {
 
 	return new Promise(function(resolve, reject) {
 
-		var sqlCheck = 'SELECT id FROM ' + table + ' WHERE title = "' + data.title + '" ';
+		var sqlCheck = 'SELECT id FROM ' + table + ' WHERE title = "' + input.title + '" ';
 		con.query(sqlCheck, function(err, result, fields) {
 			if(err) {
 				return reject(err);
@@ -14,7 +14,8 @@ exports.insert = function(con, data) {
 
 			if(result.length == 0) { 
 
-				var sql = 'INSERT INTO ' + table + ' (title,desc,content,time,status) VALUES("' + data.title + '","' + data.desc + '","'+ data.content +'","' + data.time + '","' + data.status + '")';
+				var sql = 'INSERT INTO ' + table + '(title,description,content,time,status,author_id) VALUES("' + input.title + '","' + input.desc + '","'+ input.content +'","' + input.time + '","' + input.status + '","' + input.author_id + '")';
+				console.log(sql);
 				con.query(sql, function (err, result) {
 				    if (err) {
 				    	return reject(err);

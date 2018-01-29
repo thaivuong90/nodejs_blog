@@ -57,13 +57,13 @@ exports.getListFriend = function(con, data) {
 
 	return new Promise(function(resolve, reject) {
 
-		var sqlCheck = 'SELECT u.id, u.name, u.avatar, f.friend_id, b.name as friend_name, b.avatar as friend_avatar, p.id as post_id, p.title, p.desc, p.content, p.time, p.status FROM users u ';
+		var sqlCheck = 'SELECT u.id, u.name, u.avatar, f.friend_id, b.name as friend_name, b.avatar as friend_avatar, p.id as post_id, p.title, p.description, p.content, p.time, p.status FROM users u ';
 			sqlCheck += ' LEFT JOIN friends f ON u.id = f.user_id ';
 			sqlCheck += ' LEFT JOIN users b ';
 			sqlCheck += ' ON b.id = f.friend_id ';
 			sqlCheck += ' LEFT JOIN posts p ';
 			sqlCheck += ' ON p.author_id = u.id ';
-			sqlCheck += ' WHERE u.id = "' + data.id + '" ';
+			sqlCheck += ' WHERE u.id = "' + data.id + '" ORDER BY p.time ';
 
 
 		con.query(sqlCheck,function(err, result, fields) {

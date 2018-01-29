@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		      <img src="<%= data.user_info.avatar %>" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
 		      <div class="w3-bar-item">
 		        <span class="w3-large"><%= data.user_info.name %></span><br>
-		        <span class="w3-text-green">Online</span> | <a href="/user/info">Info</a> | <a href="/page/add_post">Add post</a> | <a href="/user/logout">Logout</a>
+		        <span class="w3-text-green">Online</span> | <a href="/user/info">Info</a> | <a href="/post/add">Add post</a> | <a href="/user/logout">Logout</a>
 		      </div>
 		    </li>
 	    </ul> 
@@ -43,18 +43,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    <% } %>
 	  </div>
 	  <div class="w3-container w3-twothird">
-	  	<h2>Posts</h2>
-	  	<% if(data.list_posts.length > 0) { %>
-		  	<% for(var i=0; i < data.list_posts.length; i++) { %>
-		  	<div class="w3-panel w3-leftbar w3-border-green">
-		  		<h3><a href="#"><%= data.list_posts[i].title %></a></h3>
-		  		<span class="time"><%= data.list_posts[i].time %></span>
-		  		<p class="desc">
-		  			<%= data.list_posts[i].desc %>
-		  		</p>
-		  	</div>
-		  	<% } %>
-	  	<% } %>
+	  	<h2>Add Posts</h2>
+	  	<form class="w3-container w3-card-4 w3-padding-16" method="POST" action="/page/add_post">
+	  		<p class="w3-margin-bottom">
+				<label class="w3-text-blue"><b>Title</b></label>
+				<input class="w3-input w3-border" type="text" name="title">
+			</p>
+			<p class="w3-margin-bottom">
+				<label class="w3-text-blue"><b>Desc</b></label>
+				<textarea rows="6" class="w3-input w3-border" name="desc"></textarea>
+			</p>
+			<p class="w3-margin-bottom">
+				<label class="w3-text-blue"><b>Content</b></label>
+				<textarea rows="6" class="w3-input w3-border" name="content"></textarea>
+				<textarea rows="6" class="w3-input w3-border" name="content"></textarea>
+			</p>
+			<p class="w3-margin-bottom">
+				<input type="radio" name="status" value="1" checked>
+				<label class="w3-text-blue"><b>Show</b></label>
+				<input type="radio" name="status" value="0">
+				<label class="w3-text-blue"><b>Hide</b></label>
+			</p>
+			<p>
+				<input type="submit" name="submit" class="w3-btn w3-blue" value="Submit" />
+				<input type="submit" name="submit" class="w3-btn w3-blue" value="Clear" />
+			</p>
+		</form>
 	  </div>
 	  
 	</div>

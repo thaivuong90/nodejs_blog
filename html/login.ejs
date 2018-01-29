@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="w3-container">
 	<h1 class="w3-text-blue">Login Form</h1>
-	<form method="POST" action="login">
+	<form method="POST" action="/user/login">
 		<div class="row">
 			<label class="w3-text-blue">Username:</label>
 			<input type="text" name="username" class="w3-input w3-border" placeholder="Input your username" />
@@ -27,11 +27,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<input type="submit" name="submit" class="w3-btn w3-blue" value="Register" />
 		</div>
 	</form>
+	<% if(data.error.length > 0) { %>
 	<ul id="error">
-		<% if(data.error.length > 0) { %>
-			   <li><%= data.error %></li>
+		<% for(var i=0; i < data.error.length; i++) { %>
+			   <li><%= data.error[i].content %></li>
 		<% } %>
 	</ul>
+	<% } %>
 </div>
 
 </body>
